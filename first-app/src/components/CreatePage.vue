@@ -78,6 +78,14 @@
                         url: this.linkUrl,
                     }
                 });
+
+                clearForm();
+            },
+            clearForm() {
+                this.pageTitle =  '';
+                this.content = '';
+                this.linkText = '';
+                this.linkUrl = '';
             }
         }
     }
