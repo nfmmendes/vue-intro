@@ -3,9 +3,9 @@
         <div class = "container-fluid">
             <a class="navbar-brand" href="#"> My Vue </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li v-for="(page, index) in pages" class="nav-item" :key="index">
+                <li v-for="(page, index) in publishedPages" class="nav-item" :key="index">
                     <navbar-link :isActive = "activePage == index"
-                        :page=pages[index] 
+                        :page=page
                         @click.prevent="navLinkClick(index)"> 
                     </navbar-link>
                 </li>
@@ -28,6 +28,11 @@ export default {
     props: ['pages', 'activePage', 'navLinkClick'],
     created(){
         this.getThemeSettings(); 
+    },
+    computed:{ 
+        publishedPages(){ 
+            return this.pages.filter(x=> x.published);
+        }
     },
     data() {
         return{ 
