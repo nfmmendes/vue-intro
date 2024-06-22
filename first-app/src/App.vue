@@ -32,7 +32,8 @@ export default {
             this.pages = data;
         },
         pageCreated(newPage){ 
-            console.log(newPage)
+            this.pages.push(newPage);
+            console.log(this.pages);
         }
     }
 }
