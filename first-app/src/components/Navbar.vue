@@ -3,12 +3,12 @@
         <div class = "container-fluid">
             <a class="navbar-brand" href="#"> My Vue </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li v-for="(page, index) in publishedPages" class="nav-item" :key="index">
-                    <navbar-link :isActive = "activePage == index"
-                        :page=page
-                        @click.prevent="navLinkClick(publishedIndexes[index])"> 
+                    <navbar-link v-for="(page, index) in publishedPages" class="nav-item" :key="index"
+                        :index="publishedIndexes[index]" 
+                        :isActive = "activePage == index" 
+                        :page="page"
+                        @activated="$emit('activated')"> 
                     </navbar-link>
-                </li>
             </ul> 
             <form class="d-flex"> 
                 <button class="btn btn-primary" @click.prevent="changeTheme()"> 
@@ -25,7 +25,7 @@ export default {
     components: {
         NavbarLink
     },
-    props: ['pages', 'activePage', 'navLinkClick'],
+    props: ['pages', 'activePage'],
     created(){
         this.getThemeSettings(); 
     },
