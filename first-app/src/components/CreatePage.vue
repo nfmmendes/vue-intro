@@ -49,6 +49,18 @@
 
 <script> 
     export default {
+        emits: {
+            pageCreated({pageTitle, content, link}) {
+                if(!pageTitle)
+                    return false;
+                if(!content)
+                    return false;
+                if(!link || link.text || link.url)
+                    return false;
+               
+                return true;
+            }
+        },
         computed: {
             isFormInvalid(){ 
                 return !this.pageTitle || !this.content || !this.linkText || !this.linkUrl;
