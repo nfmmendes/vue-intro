@@ -1,7 +1,10 @@
 <template>
    <navbar :pages="pages" :active-page="activePage"></navbar>
+   <router-view></router-view>
+   <!---
    <page-viewer v-if="pages.length > 0" :page="pages[activePage]">  </page-viewer>
    <create-page @page-created="pageCreated"></create-page>
+   -->
 </template>
 
 <script> 
