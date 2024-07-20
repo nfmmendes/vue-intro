@@ -31,7 +31,7 @@
                 </div>
                 <div class="row col-mb-3">
                     <div class="form-check">
-                        <input class="form-check-input" for="checkboxs"/>
+                        <input class="form-check-input" type="checkbox" v-model="published"/>
                         <label class="form-check-label" for="gridCheck1"> 
                             Published
                         </label>  
@@ -61,6 +61,7 @@
                 content: '',
                 linkText: '',
                 linkUrl: '',
+                published: true
             }
         },
         methods: {
@@ -76,16 +77,18 @@
                     link: { 
                         text: this.linkText,
                         url: this.linkUrl,
-                    }
+                    },
+                    published: this.published
                 });
 
-                clearForm();
+                this.clearForm();
             },
             clearForm() {
-                this.pageTitle =  '';
+                this.pageTitle = '';
                 this.content = '';
                 this.linkText = '';
                 this.linkUrl = '';
+                this.published = true;
             }
         }
     }
