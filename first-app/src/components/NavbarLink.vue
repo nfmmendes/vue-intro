@@ -10,9 +10,15 @@
         computed: {
             activeClasses(){
                 return{  
-                    active: this.isActive
+                    active: this.isActive,
+                    emphasize: this.isActive
                 }
             } 
         }
     }
 </script>
+<style scoped>
+.emphasize {
+    text-decoration: underline !important;
+}
+</style>
