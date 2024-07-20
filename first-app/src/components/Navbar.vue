@@ -5,8 +5,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <navbar-link v-for="(page, index) in publishedPages" class="nav-item" :key="index"
                         :index="publishedIndexes[index]" 
-                        :page="page"
-                        @activated="$emit('activated')"> 
+                        :page="page"> 
                     </navbar-link>
 
                     <li>
@@ -30,9 +29,11 @@ export default {
     components: {
         NavbarLink
     },
-    props: ['pages', 'activePage'],
+    props: ['pages'],
     created(){
         this.getThemeSettings(); 
+
+        this.pages = this.$pages.getAllPages();
     },
     computed:{ 
         publishedPages(){ 
@@ -44,7 +45,8 @@ export default {
     },
     data() {
         return{ 
-            theme: 'light'
+            theme: 'light',
+            pages: []
         };
     },
     methods: { 
