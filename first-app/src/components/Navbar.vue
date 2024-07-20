@@ -9,7 +9,7 @@
                     </navbar-link>
 
                     <li>
-                        <router-link active-class="active" :to="`/create`" class="nav-link">  
+                        <router-link active-class="active" to="/pages/create" class="nav-link">  
                             Create Page
                         </router-link>
                     </li>
