@@ -1,6 +1,6 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
-import PageViewer from './components/PageViewer.vue'
-import CreatePage from './components/CreatePage.vue'
+import PageViewer from './views/PageViewer.vue'
+import CreatePage from './views/CreatePage.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
