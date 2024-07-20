@@ -49,7 +49,6 @@
 
 <script> 
     export default {
-        props:['pageCreated'],
         computed: {
             isFormInvalid(){ 
                 return !this.pageTitle || !this.content || !this.linkText || !this.linkUrl;
@@ -71,7 +70,7 @@
                     return;
                 }
 
-                this.pageCreated({
+                this.$emit('pageCreated', {
                     pageTitle: this.pageTitle,
                     content: this.content,
                     link: { 
