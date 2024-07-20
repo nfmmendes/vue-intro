@@ -5,13 +5,12 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <navbar-link v-for="(page, index) in publishedPages" class="nav-item" :key="index"
                         :index="publishedIndexes[index]" 
-                        :isActive = "activePage == index" 
                         :page="page"
                         @activated="$emit('activated')"> 
                     </navbar-link>
 
                     <li>
-                        <router-link :to="`/create`" class="nav-link">  
+                        <router-link active-class="active" :to="`/create`" class="nav-link">  
                             Create Page
                         </router-link>
                     </li>
