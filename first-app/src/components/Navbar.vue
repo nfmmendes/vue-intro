@@ -7,6 +7,12 @@
                         :index="publishedIndexes[index]" 
                         :page="page"> 
                     </navbar-link>
+
+                    <li>
+                        <router-link active-class="active" to="/pages" class="nav-link">  
+                            Pages
+                        </router-link>
+                    </li>
             </ul> 
             <form class="d-flex"> 
                 <button class="btn btn-primary" @click.prevent="changeTheme()"> 
