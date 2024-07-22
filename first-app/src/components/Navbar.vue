@@ -29,6 +29,7 @@ export default {
     components: {
         NavbarLink
     },
+    inject: ['$pages'],
     created(){
         this.getThemeSettings(); 
 
