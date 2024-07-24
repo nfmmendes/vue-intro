@@ -34,3 +34,9 @@ function goToPage(index){
 }
 
 </script>
+
+<style scope>
+    .table.table-hover tr:hover{ 
+        cursor: pointer;
+    }
+</style>
