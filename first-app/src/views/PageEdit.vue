@@ -1,5 +1,5 @@
 <template>
-    Edit page {{ router.params.index }}
+    <p> Edit page {{ page.pageTitle }} </p>
 
     <form action="" class="container mb-3">
         <div class="row">
@@ -8,13 +8,13 @@
                     <label for="" class="form-label">
                         Page Title
                     </label>
-                    <input v-model="pageTitle" type="text" class="form-control"/>
+                    <input v-model="page.pageTitle" type="text" class="form-control"/>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">
                         Content
                     </label>
-                    <textarea v-model="content" type="text" class="form-control" rows="5"> 
+                    <textarea v-model="page.content" type="text" class="form-control" rows="5"> 
                     </textarea>
                 </div>
             </div>
@@ -23,11 +23,11 @@
                     <label for="" class="form-label">
                         Link text
                     </label>
-                    <input type="text" v-model="linkText" class="form-control"/> 
+                    <input type="text" v-model="page.link.text" class="form-control"/> 
                 </div>
                 <div class="row col-mb-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" v-model="published"/>
+                        <input class="form-check-input" type="checkbox" v-model="page.published"/>
                         <label class="form-check-label" for="gridCheck1"> 
                             Published
                         </label>  
@@ -35,10 +35,10 @@
                 </div>
             </div>
             <div class="mb-3">
-                <button :disabled="isFormInvalid" class="btn btn-primary">
+                <button class="btn btn-primary" @click.prevent="submit()">
                     Edit
                 </button>
-                <button :disabled="isFormInvalid" class="btn btn-primary">
+                <button class="btn btn-secondary">
                     Cancel
                 </button>
             </div>
@@ -47,9 +47,22 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { inject } from 'vue'
 
 const router = useRouter(); 
-const props = defineProps(['index']);
+const pages = inject('$pages');
+const bus = inject('$bus');
 
+const {index} = defineProps(['index'])
+
+let page = pages.getSinglePage(index);
+
+function submit() {
+    pages.editPage(index, page);
+    bus.$emit('page-updated',{
+        index,
+        page
+    });
+}
 </script>
