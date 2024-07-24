@@ -9,5 +9,10 @@ export default {
     },
     getSinglePage(index){ 
         return pageStore[index];
+    },
+    editPage(index, page){
+        pageStore[index] = page;
+
+        localStorage.setItem(index, JSON.stringify(page));
     }
 }
