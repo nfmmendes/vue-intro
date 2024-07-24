@@ -38,7 +38,7 @@
                 <button class="btn btn-primary" @click.prevent="submit()">
                     Edit
                 </button>
-                <button class="btn btn-secondary">
+                <button class="btn btn-secondary" @click.prevent="submit()">
                     Cancel
                 </button>
             </div>
@@ -64,5 +64,11 @@ function submit() {
         index,
         page
     });
+
+    goToPageList();
+}
+
+function goToPageList() { 
+    router.push({path:'/pages'})
 }
 </script>
