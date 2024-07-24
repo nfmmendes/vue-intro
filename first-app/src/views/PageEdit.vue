@@ -34,8 +34,10 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
-                <button class="btn btn-primary" @click.prevent="submit()">
+        </div>
+        <div class=row>
+            <div class="col-10 mb-3">
+                <button class="btn btn-primary me-2" @click.prevent="submit()">
                     Edit
                 </button>
                 <button class="btn btn-secondary" @click.prevent="submit()">
